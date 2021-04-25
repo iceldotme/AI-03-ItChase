@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class MoveCharacter : MonoBehaviour
 {
-    [SerializeField] Transform moveGoal;
-    [SerializeField] float speed = 0.1f;
-    [SerializeField] float rotationSpeed = 0.03f;
-    [SerializeField] float distance = 1.5f;
+    [SerializeField] public Transform moveGoal;
+    [SerializeField] public float speed = 0.1f;
+    [SerializeField] public float rotationSpeed = 0.03f;
+    [SerializeField] public float distance = 1.5f;
 
     // Start is called before the first frame update
     void Start() {
