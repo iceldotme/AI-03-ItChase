@@ -4,18 +4,13 @@ using UnityEngine;
 
 public class ChaseController : MonoBehaviour
 {
-    [SerializeField] GameObject npc;
-    [SerializeField] Transform playerLocation;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+    bool it;
+    private void OnCollisionEnter(Collision collision) {
+        it = GetComponent<MoveCharacter>().it;
+        if (it) {
+           GetComponent<MoveCharacter>().it = false;
+        } else {
+            GetComponent<MoveCharacter>().it = true;
+        }
     }
 }

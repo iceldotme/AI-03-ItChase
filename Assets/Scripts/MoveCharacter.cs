@@ -8,18 +8,25 @@ public class MoveCharacter : MonoBehaviour
     [SerializeField] public float speed = 0.1f;
     [SerializeField] public float rotationSpeed = 0.03f;
     [SerializeField] public float distance = 1.5f;
+    public bool it;
 
     // Start is called before the first frame update
     void Start() {
-
+        it = true;
     }
 
     // Update is called once per frame
     void Update() {
+        Vector3 direction;
+
         GetComponent<Animator>().SetBool("near", false);
 
         Vector3 realGoal = new Vector3(moveGoal.position.x, transform.position.y, moveGoal.position.z);
-        Vector3 direction = realGoal - transform.position;
+        if (it) {
+            direction = realGoal - transform.position;
+        } else {
+            direction = realGoal + transform.position;
+        }
 
         transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(direction), rotationSpeed);
 
